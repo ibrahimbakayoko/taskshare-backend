@@ -1,0 +1,10 @@
+ipRange: 
+  - "192.168.27.64-192.168.27.65"  # Plage 192.168.27.64 à 192.168.27.65
+  - "192.168.27.67-192.168.27.68"  # Plage 192.168.27.67 à 192.168.27.68
+  - "192.168.27.62-192.168.27.62"  # Plage 192.168.27.62 
+
+
+
+#  -------------------  valeur initial bckup ---------------------
+# Plage d'adresses IP que MetalLB va utiliser pour attribuer des adresses IP aux services LoadBalancer
+#ipRange: "192.168.27.67-192.168.27.68"

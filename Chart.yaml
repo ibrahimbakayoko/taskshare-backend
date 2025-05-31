@@ -1,0 +1,6 @@
+# Définition des métadonnées du chart Helm pour le backend de l'application TaskManager
+apiVersion: v2
+name: taskmanager-backend
+description: A Helm chart for deploying the TaskManagerApp backend.
+version: 0.1.0
+appVersion: "1.0.0"

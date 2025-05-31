@@ -1,0 +1,20 @@
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: default-address-pool
+  namespace: metallb-system
+spec:
+  addresses:
+{{- range .Values.ipRange }}
+    - {{ . | quote }}
+{{- end }}
+
+#  ------------------  backup valeur ---------------------------
+#apiVersion: metallb.io/v1beta1
+#kind: IPAddressPool
+#metadata:
+#  name: default-address-pool   # Nom de la pool d'adresses
+#  namespace: metallb-system    # Namespace dans lequel MetalLB fonctionne
+#spec:
+#  addresses:
+#    - {{ .Values.ipRange }}     # La plage d'adresses que nous avons définie dans values.yaml

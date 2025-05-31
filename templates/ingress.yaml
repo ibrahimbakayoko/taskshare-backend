@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Chart.Name }}-ingress
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web  # Traefik gérer l'Ingress sur l'entrée "web"
+spec:
+  rules:
+    - host: backend.local   # Nom d'hôte pour l'accès via Traefik
+      http:
+        paths:
+          - path: /  # Le chemin d'accès pour l'Ingress
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Chart.Name }}  # Nom du service pour cet Ingress
+                port:
+                  number: {{ .Values.service.port }}  # Port de service
