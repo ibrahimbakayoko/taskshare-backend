@@ -40,7 +40,7 @@ resources:
 
 # Image Docker pour le backend de l'application
 image:
-  repository: yacine78/taskmanager  # Nom de l'image Docker pour le backend
+  repository: dnais1210/taskshare  # Nom de l'image Docker pour le backend
   tag: latest                              # Version de l'image
   pullPolicy: Always                 # Politique de téléchargement de l'image
 
@@ -51,7 +51,7 @@ service:
 
 # Variables d'environnement pour la connexion à la base de données
 env:
-  DB_HOST: galeradb-mariadb-galera.taskmanager.svc.cluster.local  # Nom du service MariaDB
+  DB_HOST: galeradb-mariadb-galera.taskshare.svc.cluster.local  # Nom du service MariaDB
   DB_USER: user                     # Utilisateur DB
   DB_PASSWORD: password             # Mot de passe DB
   DB_NAME: taskmanager              # Nom de la base de données
