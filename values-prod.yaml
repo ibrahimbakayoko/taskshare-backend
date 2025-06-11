@@ -1,0 +1,43 @@
+replicaCount: 1
+
+envName: prod    # Nom de l'environnement, utilisé dans l'Ingress (ex: test.backend.local)
+
+auth:
+  rootPassword: rootpassword
+  database: taskmanager
+  username: user
+  password: password
+
+primary:
+  persistence:
+    enabled: true
+    size: 5Gi
+
+secondary:
+  replicaCount: 2
+  persistence:
+    enabled: true
+    size: 5Gi
+
+resources:
+  requests:
+    memory: 256Mi
+    cpu: 250m
+  limits:
+    memory: 512Mi
+    cpu: 500m
+
+image:
+  repository: dnais1210/taskshare
+  tag: latest                  # Version "dev" pour l'environnement de test
+  pullPolicy: Always
+
+service:
+  type: ClusterIP           # Pas de LoadBalancer en test, on utilise Ingress seulement
+  port: 80
+
+env:
+  DB_HOST: galeradb-mariadb-galera.taskshare.svc.cluster.local
+  DB_USER: user
+  DB_PASSWORD: password
+  DB_NAME: taskmanager
